@@ -1,18 +1,43 @@
-# React + Vite
+# Sobes Trainer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Interactive web app for practicing frontend job-interview questions on HTML, CSS, JavaScript and React.
 
-Currently, two official plugins are available:
+## Overview
+Quick, no-signup practice rounds: pick a category, answer multiple-choice questions against a countdown timer, and get instant feedback with explanations plus a full breakdown at the end of the round.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Features
+- Category selection (HTML, CSS, JavaScript, React, Mixed)
+- Timed rounds with a live countdown and progress bar
+- Instant answer feedback — correct/incorrect highlighting plus an explanation for each question
+- Result screen with score, category, skill-level message, and a review of missed questions
+- Best result persisted locally (localStorage)
+- Light / dark / system theme toggle, synced with the OS preference
 
-## React Compiler
+## Tech Stack
+- React 19 + Vite
+- Tailwind CSS v4
+- React Compiler (babel-plugin-react-compiler)
+- ESLint
+- Context API for quiz state (QuizProvider)
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+## Getting Started
 
-Note: This will impact Vite dev & build performances.
+```bash
+npm install
+npm run dev
+```
 
-## Expanding the ESLint configuration
+Open http://localhost:5173
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Available Scripts
+- `npm run dev` — start dev server
+- `npm run build` — production build
+- `npm run preview` — preview production build
+- `npm run lint` — run ESLint
+
+## Project Structure
+- `components/` — UI building blocks (Header, StartScreen, QuizScreen, QuestionCard, AnswerOption, Timer, ProgressBar, ResultScreen, Card, SelectTheme)
+- `providers/` — QuizProvider (quiz state and flow)
+- `hooks/` — useCountdown
+- `data/` — questions and categories
+- `utils.js` — shuffle, result-level calculation, localStorage helpers
